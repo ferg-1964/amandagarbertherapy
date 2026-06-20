@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Amanda Garber — Counselling &amp; Psychotherapy</title>
+<meta name="description" content="Amanda Garber — BACP Accredited counsellor and psychotherapist based in Stroud Green, North London. In-person and online sessions available.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream:   #f7f4ef;
+    --warm:    #ede8e0;
+    --sage:    #5a7a65;
+    --sage-lt: #dce8e0;
+    --ink:     #2b2b2b;
+    --muted:   #6b6b6b;
+    --border:  #d8d2c8;
+    --white:   #ffffff;
+    --serif:   'Lora', Georgia, serif;
+    --sans:    'DM Sans', system-ui, sans-serif;
+    --radius:  4px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { transition-duration: 0.01ms !important; }
+  }
+
+  body {
+    margin: 0;
+    background: var(--cream);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 1rem;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  /* ── NAV ── */
+  .site-nav {
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 20;
+  }
+  .site-nav__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.5rem;
+    max-width: 860px;
+    margin: 0 auto;
+  }
+  .site-nav__logo {
+    font-family: var(--serif);
+    font-size: 1rem;
+    color: var(--ink);
+    text-decoration: none;
+    letter-spacing: 0.01em;
+  }
+  .site-nav__links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .site-nav__links a {
+    font-size: 0.875rem;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+  .site-nav__links a:hover,
+  .site-nav__links a:focus-visible { color: var(--sage); }
+  @media (max-width: 560px) { .site-nav__links { display: none; } }
+
+  /* ── HERO ── */
+  .hero {
+    padding: 5rem 0 4rem;
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+  }
+  .hero__inner {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 3rem;
+    align-items: start;
+  }
+  @media (max-width: 600px) {
+    .hero__inner { grid-template-columns: 1fr; }
+    .hero__photo { order: -1; }
+  }
+
+  .hero__eyebrow {
+    font-size: 0.8rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--sage);
+    margin: 0 0 1rem;
+  }
+  .hero h1 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(2rem, 5.5vw, 3rem);
+    line-height: 1.2;
+    margin: 0 0 0.5rem;
+    color: var(--ink);
+  }
+  .hero__subtitle {
+    font-family: var(--serif);
+    font-style: italic;
+    color: var(--muted);
+    font-size: 1.05rem;
+    margin: 0 0 1.5rem;
+  }
+  .hero__body {
+    color: var(--muted);
+    max-width: 520px;
+    margin: 0 0 2rem;
+  }
+  .hero__ctas {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    display: inline-block;
+    font-family: var(--sans);
+    font-size: 0.875rem;
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--radius);
+    text-decoration: none;
+    transition: background 0.15s, color 0.15s, border-color 0.15s;
+    letter-spacing: 0.01em;
+    cursor: pointer;
+  }
+  .btn--primary {
+    background: var(--sage);
+    color: var(--white);
+    border: 1.5px solid var(--sage);
+  }
+  .btn--primary:hover { background: #4a6954; border-color: #4a6954; }
+  .btn--outline {
+    background: transparent;
+    color: var(--sage);
+    border: 1.5px solid var(--sage);
+  }
+  .btn--outline:hover { background: var(--sage-lt); }
+  .btn:focus-visible { outline: 2px solid var(--sage); outline-offset: 2px; }
+
+  .hero__photo {
+    width: 160px;
+    flex-shrink: 0;
+  }
+  .hero__photo img {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--sage-lt);
+    display: block;
+  }
+  @media (max-width: 600px) {
+    .hero__photo { width: auto; }
+    .hero__photo img { width: 120px; height: 120px; }
+  }
+
+  /* ── SECTION SHARED ── */
+  section { padding: 4rem 0; }
+  section + section { border-top: 1px solid var(--border); }
+
+  .section-label {
+    font-size: 0.75rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--sage);
+    margin: 0 0 0.5rem;
+    font-family: var(--sans);
+    font-weight: 500;
+  }
+  h2 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(1.5rem, 3.5vw, 2rem);
+    margin: 0 0 1.5rem;
+    color: var(--ink);
+    line-height: 1.25;
+  }
+
+  /* ── ABOUT THERAPY ── */
+  .about-therapy { background: var(--cream); }
+  .about-therapy__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+  }
+  @media (max-width: 620px) { .about-therapy__grid { grid-template-columns: 1fr; } }
+
+  .about-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.75rem;
+  }
+  .about-card h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin: 0 0 0.85rem;
+    color: var(--ink);
+  }
+  .about-card p, .about-card ul {
+    color: var(--muted);
+    font-size: 0.95rem;
+    margin: 0;
+  }
+  .about-card ul {
+    padding-left: 1.1rem;
+    margin-top: 0.5rem;
+  }
+  .about-card ul li { margin-bottom: 0.35rem; }
+  .about-card ul li::marker { color: var(--sage); }
+
+  /* ── ISSUES ── */
+  .issues { background: var(--sage-lt); }
+  .issues-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+  }
+  @media (max-width: 620px) { .issues-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 360px) { .issues-grid { grid-template-columns: 1fr; } }
+
+  .issue-chip {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 0.55rem 0.85rem;
+    font-size: 0.875rem;
+    color: var(--ink);
+    text-align: center;
+  }
+
+  /* ── QUOTE ── */
+  .quote-section { background: var(--white); text-align: center; }
+  blockquote {
+    max-width: 600px;
+    margin: 0 auto;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(1.1rem, 2.5vw, 1.35rem);
+    color: var(--ink);
+    line-height: 1.6;
+    border: none;
+    padding: 0;
+  }
+  blockquote cite {
+    display: block;
+    font-family: var(--sans);
+    font-style: normal;
+    font-size: 0.85rem;
+    color: var(--sage);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-top: 1.25rem;
+  }
+
+  /* ── ABOUT AMANDA ── */
+  .about-amanda { background: var(--cream); }
+  .about-amanda__inner {
+    display: grid;
+    grid-template-columns: 1fr 260px;
+    gap: 3rem;
+    align-items: start;
+  }
+  @media (max-width: 640px) {
+    .about-amanda__inner { grid-template-columns: 1fr; }
+  }
+  .about-amanda p { color: var(--muted); }
+  .about-amanda a { color: var(--sage); }
+
+  .credential-box {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+  }
+  .credential-box h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 1rem;
+    margin: 0 0 1rem;
+    color: var(--ink);
+  }
+  .cred-line {
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+    font-size: 0.875rem;
+    color: var(--muted);
+  }
+  .cred-line strong { color: var(--ink); display: block; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.1rem; }
+  .bacp-badge {
+    margin-top: 1.25rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border);
+    font-size: 0.78rem;
+    color: var(--sage);
+    letter-spacing: 0.04em;
+  }
+
+  /* ── APPOINTMENTS ── */
+  .appointments { background: var(--white); }
+  .appt-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+  @media (max-width: 560px) { .appt-grid { grid-template-columns: 1fr; } }
+
+  .appt-card {
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+  }
+  .appt-card h3 {
+    font-family: var(--serif);
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0 0 0.65rem;
+    color: var(--ink);
+  }
+  .appt-card p { font-size: 0.9rem; color: var(--muted); margin: 0; }
+
+  .fees {
+    margin-top: 2rem;
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+  .fee {
+    background: var(--sage-lt);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.1rem 1.5rem;
+    min-width: 160px;
+  }
+  .fee__amount {
+    font-family: var(--serif);
+    font-size: 1.75rem;
+    font-weight: 400;
+    color: var(--sage);
+    line-height: 1;
+  }
+  .fee__label {
+    font-size: 0.8rem;
+    color: var(--muted);
+    margin-top: 0.35rem;
+  }
+
+  /* ── CONTACT ── */
+  .contact-section { background: var(--sage); }
+  .contact-section .section-label { color: rgba(255,255,255,0.6); }
+  .contact-section h2 { color: var(--white); }
+  .contact-section p { color: rgba(255,255,255,0.8); max-width: 520px; }
+
+  .contact-links {
+    display: flex;
+    gap: 1rem 2rem;
+    flex-wrap: wrap;
+    margin: 1.75rem 0 0;
+  }
+  .contact-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1rem;
+    border-bottom: 1px solid rgba(255,255,255,0.35);
+    padding-bottom: 0.2rem;
+  }
+  .contact-link:hover, .contact-link:focus-visible {
+    border-color: var(--white);
+    opacity: 0.85;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--ink);
+    text-align: center;
+    padding: 1.5rem;
+  }
+  footer p {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.35);
+    margin: 0;
+    letter-spacing: 0.06em;
+  }
+</style>
+</head>
+<body>
+
+<nav class="site-nav" aria-label="Main navigation">
+  <div class="site-nav__inner">
+    <a class="site-nav__logo" href="#top">Amanda Garber</a>
+    <ul class="site-nav__links">
+      <li><a href="#about-therapy">About Therapy</a></li>
+      <li><a href="#about-amanda">About Amanda</a></li>
+      <li><a href="#appointments">Appointments</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="container">
+    <div class="hero__inner">
+      <div class="hero__text">
+        <p class="hero__eyebrow">Counselling &amp; Psychotherapy · North London</p>
+        <h1>A space to understand yourself more fully</h1>
+        <p class="hero__subtitle">Amanda Garber, MBACP (Accred.)</p>
+        <p class="hero__body">I offer individual counselling and psychotherapy in Stroud Green and online via Zoom — a confidential, non-judgemental space to explore what's troubling you, at your own pace.</p>
+        <div class="hero__ctas">
+          <a class="btn btn--primary" href="mailto:amanda.garbercc@gmail.com">Email Amanda</a>
+          <a class="btn btn--outline" href="tel:+447562928839">Call 07562 928 839</a>
+        </div>
+      </div>
+      <div class="hero__photo">
+        <img src="amanda.jpg" alt="Portrait of Amanda Garber" width="160" height="160">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT THERAPY -->
+<section class="about-therapy" id="about-therapy">
+  <div class="container">
+    <p class="section-label">What therapy offers</p>
+    <h2>Understanding yourself better</h2>
+    <div class="about-therapy__grid">
+      <div class="about-card">
+        <h3>What brings people to therapy?</h3>
+        <p>Seeking therapy can be an opportunity to make sense of your past, reflect on the present, and prepare for the future. We can all experience difficulties: sometimes we feel stuck with an issue, or a stressful situation leaves us feeling unable to cope. Being listened to with genuine empathy can help you work through what's causing distress.</p>
+      </div>
+      <div class="about-card">
+        <h3>What therapy can help you do</h3>
+        <ul>
+          <li>Identify your problems clearly</li>
+          <li>Clarify your thoughts and feelings</li>
+          <li>Find a more satisfying way of living</li>
+          <li>Make decisions that lead to change</li>
+          <li>Develop a deeper understanding of yourself and your relationships</li>
+          <li>Enhance your relationships with others</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ISSUES -->
+<section class="issues" id="issues">
+  <div class="container">
+    <p class="section-label">Areas I work with</p>
+    <h2>How I can help you</h2>
+    <div class="issues-grid">
+      <div class="issue-chip">Low self-esteem</div>
+      <div class="issue-chip">Relationship issues</div>
+      <div class="issue-chip">Depression</div>
+      <div class="issue-chip">Anxiety</div>
+      <div class="issue-chip">Stress</div>
+      <div class="issue-chip">Bereavement &amp; loss</div>
+      <div class="issue-chip">Racism &amp; cultural identity</div>
+      <div class="issue-chip">Health-related issues</div>
+      <div class="issue-chip">Sexual issues</div>
+      <div class="issue-chip">Gender identity</div>
+      <div class="issue-chip">Childhood trauma &amp; abuse</div>
+      <div class="issue-chip">Sexual, physical &amp; emotional abuse</div>
+      <div class="issue-chip">Compulsive behaviour</div>
+      <div class="issue-chip">Addiction &amp; substance misuse</div>
+      <div class="issue-chip">Fertility issues</div>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE -->
+<section class="quote-section">
+  <div class="container">
+    <blockquote>
+      "It is the client who knows what hurts, what directions to go, what problems are crucial, what experiences have been deeply buried."
+      <cite>— Carl Rogers</cite>
+    </blockquote>
+  </div>
+</section>
+
+<!-- ABOUT AMANDA -->
+<section class="about-amanda" id="about-amanda">
+  <div class="container">
+    <div class="about-amanda__inner">
+      <div>
+        <p class="section-label">About Amanda</p>
+        <h2>My approach</h2>
+        <p>My approach to counselling and psychotherapy is person-centred and humanistic — I work in a non-directive and non-judgemental way, taking my cues from you. Sessions are a confidential, reflective and caring space to explore what's on your mind.</p>
+        <p>I have substantial experience of working within statutory, voluntary and private sector counselling services.</p>
+        <p>You can also find me on the <a href="https://www.counselling-directory.org.uk/counsellors/amanda-garber" target="_blank" rel="noopener">Counselling Directory</a>.</p>
+      </div>
+      <div class="credential-box">
+        <h3>Qualifications</h3>
+        <div class="cred-line">
+          <div>
+            <strong>Degree</strong>
+            BA Hons.
+          </div>
+          <div>
+            <strong>Diploma</strong>
+            Dip. T. Counselling
+          </div>
+          <div>
+            <strong>Certificate</strong>
+            Cert. Counselling
+          </div>
+        </div>
+        <p class="bacp-badge">MBACP (Accred.) · Membership no. 067698 · Adheres to the BACP Code of Ethics</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- APPOINTMENTS -->
+<section class="appointments" id="appointments">
+  <div class="container">
+    <p class="section-label">Sessions</p>
+    <h2>Appointments</h2>
+    <div class="appt-grid">
+      <div class="appt-card">
+        <h3>In-person</h3>
+        <p>Sessions take place at my practice in Stroud Green, between Crouch End and Finsbury Park in North London.</p>
+      </div>
+      <div class="appt-card">
+        <h3>Online via Zoom</h3>
+        <p>I offer online sessions for those who prefer to meet remotely or can't travel to the practice.</p>
+      </div>
+    </div>
+    <div class="appt-grid" style="margin-top:1.5rem;">
+      <div class="appt-card">
+        <h3>Short-term or open-ended</h3>
+        <p>Therapy is available on a short-term or open-ended basis — whatever suits your needs and goals.</p>
+      </div>
+      <div class="appt-card">
+        <h3>How it works</h3>
+        <p>Sessions are weekly and last 50 minutes. After an initial phone or email contact, we'll meet for an initial consultation to discuss your needs and how we can work together.</p>
+      </div>
+    </div>
+    <div class="fees">
+      <div class="fee">
+        <div class="fee__amount">£50</div>
+        <div class="fee__label">Initial consultation</div>
+      </div>
+      <div class="fee">
+        <div class="fee__amount">£70</div>
+        <div class="fee__label">Ongoing sessions</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+  <div class="container">
+    <p class="section-label">Get in touch</p>
+    <h2>Ready to take the first step?</h2>
+    <p>Get in touch by email or phone. I'm happy to have a brief initial conversation before you decide whether to book a consultation.</p>
+    <div class="contact-links">
+      <a class="contact-link" href="mailto:amanda.garbercc@gmail.com">amanda.garbercc@gmail.com</a>
+      <a class="contact-link" href="tel:+447562928839">07562 928 839</a>
+      <span style="color:rgba(255,255,255,0.6); align-self:center; font-size:0.95rem;">Stroud Green, North London</span>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>Amanda Garber Counselling &amp; Psychotherapy &middot; MBACP Accredited &middot; &copy; 2025</p>
+</footer>
+
+</body>
+</html>
