@@ -139,12 +139,13 @@
     width: 200px;
     height: 200px;
     object-fit: cover;
-    border-radius: 3px;
+    border-radius: 50%;
     float: right;
     margin: 0 0 1.5rem 2.5rem;
+    shape-outside: circle(50%);
   }
   @media (max-width: 600px) {
-    .section-img { float: none; width: 100%; height: 220px; margin: 0 0 1.5rem 0; }
+    .section-img { float: none; width: 160px; height: 160px; border-radius: 50%; margin: 0 auto 1.5rem; display: block; }
   }
 
   .section-eyebrow {
@@ -197,10 +198,11 @@
     width: 200px;
     height: 200px;
     object-fit: cover;
-    border-radius: 3px;
+    object-position: center 15%;
+    border-radius: 50%;
     display: block;
   }
-  @media (max-width: 640px) { .about-photo { width: 100%; height: 240px; } }
+  @media (max-width: 640px) { .about-photo { width: 160px; height: 160px; margin: 0 auto 1.5rem; } }
 
   .credentials {
     background: var(--cream-dark);
